@@ -1,12 +1,13 @@
 package bookmarket.model;
 
 public class CartItem {
-
 	Book book;
+	int bookId;
 	int quantity;
 	
 	public CartItem(Book book) {
 		this.book = book;
+		this.bookId = book.getBookId();
 		this.quantity = 1;
 	}
 	
@@ -22,10 +23,16 @@ public class CartItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
 	public void addQuantity(int quantity) {
 		this.quantity += quantity;
+		
 	}
+
+	@Override
 	public String toString() {
-		return book.getBookId() + ", " + book.getTitle() + ", " + book.getPrice() + "원, " + quantity + "권";
-}
+		return book.getBookId() + ", " + book.getTitle() + ", " + quantity + "권";
+	}
+	
+	
 }
